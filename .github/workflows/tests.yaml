@@ -1,0 +1,23 @@
+name: Unit tests
+
+on:
+  pull_request:
+
+jobs:
+  unit_tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v2
+
+      - name: setup nodejs
+        uses: actions/setup-node@v2
+        with:
+          node-version: '12'
+
+      - name: install dependencies
+        run: yarn && npx lerna bootstrap --force-local
+
+      - name: run jest on modified packages
+        run: npx lerna run test --since ${{ github.payload.pull_request.base.sha }}
