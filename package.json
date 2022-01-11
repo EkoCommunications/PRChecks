@@ -6,7 +6,8 @@
   "npmClient": "yarn",
   "useWorkspaces": true,
   "workspaces": [
-    "pr-title"
+    "pr-title",
+    "task-list"
   ],
   "repository": {
     "type": "git",

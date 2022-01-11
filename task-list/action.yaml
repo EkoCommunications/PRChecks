@@ -1,0 +1,16 @@
+name: Task list
+description: Confirms that all mandatory checkboxes are ticked in a PR body
+
+branding:
+  icon: check-square
+  color: blue
+
+runs:
+  using: node12
+  main: index.js
+
+inputs:
+  skip-marker:
+    description: Used to isolate optional checks with HTML comments
+    default: 'optional-tasks'
+    required: false
