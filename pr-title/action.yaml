@@ -1,0 +1,21 @@
+name: PR title
+description: Validate PR title against a simple regexp
+
+branding:
+  icon: edit-3
+  color: orange
+
+runs:
+  using: node12
+  main: index.js
+
+inputs:
+  regexp:
+    description: The pattern to test the PR title against.
+    default: '^(epic|feat|fix|hotfix|chore|ci|docs|misc)\(\w+\)!?:\s[A-Z]{1,5}-[0-9]{1,}\s-\s[\s\w]{5,60}$'
+    required: false
+
+  message:
+    description: The error message to display
+    default: PR title does not follow team guidelines.
+    required: false

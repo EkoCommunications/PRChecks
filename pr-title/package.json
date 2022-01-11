@@ -1,0 +1,22 @@
+{
+  "name": "pr-title",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "jest",
+    "build": "esbuild index.ts --bundle --platform=node --outfile=index.js"
+  },
+  "dependencies": {
+    "@actions/core": "^1.6.0",
+    "@actions/github": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.4.0",
+    "@types/js-yaml": "^4.0.5",
+    "esbuild": "^0.13.8",
+    "jest": "^27.4.7",
+    "js-yaml": "^4.1.0",
+    "ts-jest": "^27.1.2",
+    "typescript": "^4.5.4"
+  }
+}
