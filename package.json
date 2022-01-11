@@ -1,0 +1,26 @@
+{
+  "private": true,
+  "name": "@amityco/pr-checks",
+  "description": "A set of github actions to enforce code quality",
+  "version": "0.0.0",
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EkoCommunications/PRChecks.git"
+  },
+  "keywords": [],
+  "author": "Julien Barbay <julien.barbay@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EkoCommunications/PRChecks/issues"
+  },
+  "homepage": "https://github.com/EkoCommunications/PRChecks#readme",
+  "devDependencies": {
+    "auto-changelog": "^2.3.0",
+    "lerna": "^4.0.0"
+  }
+}
