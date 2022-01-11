@@ -1,0 +1,25 @@
+name: Jest coverage
+description: A simple approach to jest coverage reporting
+
+branding:
+  icon: shield
+  color: red
+
+runs:
+  using: node12
+  main: index.js
+
+inputs:
+  jest:
+    description: The jest command to run
+    required: false
+    default: jest
+
+  threshold:
+    description: The minimum limit for acceptable code coverage
+    default: '80'
+    required: false
+
+  scope:
+    description: An extra name to add in the comment header
+    required: false
