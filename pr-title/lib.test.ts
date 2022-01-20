@@ -6,9 +6,9 @@ import { run } from './lib'
 const config = load(readFileSync('./action.yaml', 'utf-8'))
 
 const cases = [
-  ['epic(sdk): UP-0000 - foobar', 'pass'],
+  ['epic: UP-0000 - foobar', 'pass'], // no scope
+  ['epic(sdk): UP-0000 - foobar', 'pass'], // with scope
   ['fail: UP-0000 - foobar', 'fail (invalid verb)'],
-  ['epic: UP-0000 - foobar', 'fail (no scope)'],
   ['epic(sdk) UP-0000 foobar', 'fail (no colon)'],
   ['epic(sdk): foobar', 'fail (no ticket number)'],
   ['epic(sdk): 12-XXXX - foobar', 'fail (invalid ticket number)'],

@@ -12,7 +12,7 @@ runs:
 inputs:
   regexp:
     description: The pattern to test the PR title against.
-    default: '^(epic|feat|fix|hotfix|chore|ci|docs|misc)\(\w+\)!?:\s[A-Z]{1,5}-[0-9]{1,}\s-\s[\s\w]{5,60}$'
+    default: '^(epic|feat|fix|hotfix|chore|ci|docs|misc)(\(\w+\))?!?:\s[A-Z]{1,5}-[0-9]{1,}\s-\s[\s\w]{5,60}$'
     required: false
 
   message:
