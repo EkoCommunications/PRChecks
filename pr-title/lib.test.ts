@@ -8,6 +8,7 @@ const config = load(readFileSync('./action.yaml', 'utf-8'))
 const cases = [
   ['epic: UP-0000 - foobar', 'pass'], // no scope
   ['epic(sdk): UP-0000 - foobar', 'pass'], // with scope
+  ['epic: UP-0000 - foo-bar+baz_lol', 'pass'], // containing - _
   ['fail: UP-0000 - foobar', 'fail (invalid verb)'],
   ['epic(sdk) UP-0000 foobar', 'fail (no colon)'],
   ['epic(sdk): foobar', 'fail (no ticket number)'],
