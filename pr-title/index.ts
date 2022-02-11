@@ -7,6 +7,8 @@ const title = github.context.payload?.pull_request?.['title']
 
 if (!title) core.setFailed('The PR has no title.')
 
+core.info(`Checking PR: ${title}`)
+
 const isValid = run(title, core.getInput('regexp'))
 
 if (!isValid) core.setFailed(core.getInput('message'))
