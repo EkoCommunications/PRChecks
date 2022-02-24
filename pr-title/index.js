@@ -10197,7 +10197,7 @@ var run = (title2, regexp) => {
 var _a, _b;
 var title = (_b = (_a = import_github.default.context.payload) == null ? void 0 : _a.pull_request) == null ? void 0 : _b["title"];
 if (!title)
-  import_core.default.setFailed("The PR has no title.");
+  import_core.default.setFailed("The PR has no title. (debug at: https://jsfiddle.net/L279jsnz/)");
 import_core.default.info(`Checking PR: ${title}`);
 var isValid = run(title, import_core.default.getInput("regexp"));
 if (!isValid)

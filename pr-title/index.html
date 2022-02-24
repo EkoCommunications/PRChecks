@@ -1,0 +1,108 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Amity's PR title tester</title>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css">
+    <style>
+      body {
+        padding: 1rem;
+      }
+
+      body > :first-child {
+        margin-top: 0;
+      }
+
+      h2 {
+        border-bottom: 1px solid #cacaca;
+      }
+
+      form {
+        display: grid;
+        grid-template-columns: min-content auto;
+        grid-gap: .5rem;
+        align-items: baseline;
+      }
+
+      label {
+        padding-top: .5rem;
+      }
+
+      textarea, input {
+        padding: .5rem;
+        background: #f0f0f0;
+        border: 1px solid #cacaca;
+        border-radius: .25rem;
+        font-family: monospace;
+      }
+
+      textarea {
+        height: 4rem;
+        resize: vertical;
+      }
+    </style>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+  </head>
+
+  <body>
+    <h2>PR title tester</h2>
+
+    <p>This is an online tool to debug the default regular expression provided in amity project, found at <a href="https://github.com/EkoCommunications/PRChecks/blob/develop/pr-title" target="_blank">EkoCommunications/PRChecks/pr-title@develop</a>.</p>
+
+    <br>
+
+    <form>
+      <label>PR title:</label>
+      <input type="search" disabled />  
+
+      <label>RegExp:</label>
+      <textarea></textarea>  
+
+      <label>Result:</label>
+      <strong></strong>
+    </form>
+
+    <script>
+      function updateTest() {
+        const { value: regexp } = document.querySelector('textarea') 
+        const { value: input } = document.querySelector('input') 
+
+        const passed = new RegExp(regexp, 'i').test(input.trim())
+
+        document.querySelector('strong')
+          .textContent = passed ? '🟢 GOOD' : '🔴 NOT GOOD'
+      }
+
+
+      document
+        .querySelector('textarea')
+        .addEventListener('input', updateTest)
+
+      document
+        .querySelector('input')
+        .addEventListener('input', updateTest)
+
+
+
+      const main = async (regexp) => {
+        if (!regexp) {
+          const response = await fetch('https://raw.githubusercontent.com/EkoCommunications/PRChecks/develop/pr-title/action.yaml')
+
+          const text = await response.text()
+          const yaml = jsyaml.load(text, 'utf-8')
+
+          regexp = yaml.inputs.regexp.default
+        }
+
+        document.querySelector('textarea').value = regexp
+
+        document
+          .querySelector('input')
+          .removeAttribute('disabled')
+      }
+
+      main(/* pass a regexp manually here */)
+    </script>
+  </body>
+</html>
+

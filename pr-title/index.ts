@@ -5,7 +5,7 @@ import { run } from './lib'
 
 const title = github.context.payload?.pull_request?.['title']
 
-if (!title) core.setFailed('The PR has no title.')
+if (!title) core.setFailed('The PR has no title. (debug at: https://jsfiddle.net/L279jsnz/)')
 
 core.info(`Checking PR: ${title}`)
 

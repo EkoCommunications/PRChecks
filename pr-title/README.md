@@ -28,3 +28,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: EkoCommunications/PRChecks/pr-title@develop
 ```
+
+## Debugging
+
+There's an online debugger at: https://jsfiddle.net/L279jsnz/ OR you can serve the `index.html` page of this folder as well.
